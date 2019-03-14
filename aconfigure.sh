@@ -73,7 +73,7 @@ do
     export STRIP=${ANDROID_TOOLCHAIN_BIN}/${COMPILER_PREFIX}-strip
 
     echo "---- Compiling for ${ARCH}"
-    ./configure --host="${COMPILER_PREFIX}" --prefix="${ANDROID_TOOLCHAIN_SYSROOT_DIR}/usr"
+    ./configure --host="${COMPILER_PREFIX}" --prefix="${ANDROID_TOOLCHAIN_SYSROOT_DIR}/usr" CFLAGS="-fPIC"
     make
     make install
 done
