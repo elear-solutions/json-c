@@ -18,7 +18,7 @@ class JsonclibConan(ConanFile):
     def build(self):
         autotools = AutoToolsBuildEnvironment(self)
         self.run("cd .. && autoreconf -fsi ")
-        autotools.configure(configure_dir="..",args=["--prefix=${PWD}"])
+        autotools.configure(configure_dir="..",args=[ "--prefix=${PWD}" ])
         autotools.make()
         autotools.install()
     def package(self):
@@ -26,5 +26,5 @@ class JsonclibConan(ConanFile):
         self.copy("*", dst="lib", src="lib", keep_path=False)
 
     def package_info(self):
-        self.cpp_info.libs = ["json-c"]
+        self.cpp_info.libs = [ "json-c" ]
 
