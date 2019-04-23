@@ -25,4 +25,3 @@ class JsonclibConan(ConanFile):
 
     def package_info(self):
         self.cpp_info.libs = [ "json-c" ]
-
