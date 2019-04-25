@@ -9,14 +9,14 @@ class JsonclibConan(ConanFile):
     description = "<Description of jsonclib here>"
     topics = ("<Put some tag here>", "<here>", "<and here>")
     settings = "os", "compiler", "build_type", "arch"
-    options = {"shared": [True, False]}
+    options = { "shared": [True, False] }
     default_options = "shared=False"
     generators = "make"
 
     def build(self):
         autotools = AutoToolsBuildEnvironment(self)
         self.run("cd .. && autoreconf -fsi ")
-        autotools.configure(configure_dir="..",args=[ "--prefix=${PWD}" ])
+        autotools.configure(configure_dir="..",args=["--prefix=${PWD}"])
         autotools.make()
         autotools.install()
     def package(self):
