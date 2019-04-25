@@ -19,6 +19,7 @@ class JsonclibConan(ConanFile):
         autotools.configure(configure_dir="..",args=["--prefix=${PWD}"])
         autotools.make()
         autotools.install()
+
     def package(self):
         self.copy("*.h", dst="include", src="include")
         self.copy("*", dst="lib", src="lib", keep_path=False)
