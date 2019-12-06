@@ -34,7 +34,7 @@ class JsonclibConan(ConanFile):
                                   "execute_process(COMMAND ./configure ",
                                   "execute_process(COMMAND ./configure --host %s " % host)
         cmake = CMake(self)
-        cmake.configure()
+        cmake.configure(source_folder=".")
         return cmake
 
     def build(self):
