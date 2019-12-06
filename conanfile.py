@@ -30,7 +30,7 @@ class JsonclibConan(ConanFile):
     def _configure_cmake(self):
         if tools.cross_building(self.settings) and self.settings.os != "Windows":
             host = tools.get_gnu_triplet(str(self.settings.os), str(self.settings.arch))
-            tools.replace_in_file("CMakeLists.txt",
+            tools.replace_in_file("./CMakeLists.txt",
                                   "execute_process(COMMAND ./configure ",
                                   "execute_process(COMMAND ./configure --host %s " % host)
         cmake = CMake(self)
