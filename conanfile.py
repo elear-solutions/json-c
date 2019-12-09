@@ -9,7 +9,7 @@ class JsonclibConan(ConanFile):
     homepage = "https://github.com/elear-solutions/json-c"
     license = "<Put the package license here>"
     generators = "cmake"
-    settings = "os", "arch", "compiler", "build_type"
+    settings = "os", "compiler", "build_type", "arch"
     options = {
         "shared": [True, False],
         "fPIC": [True, False]
