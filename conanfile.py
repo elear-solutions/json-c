@@ -1,5 +1,4 @@
 from conans import ConanFile, CMake, tools
-import os
 
 class JsonclibConan(ConanFile):
     name = "json-c"
