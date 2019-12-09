@@ -43,8 +43,8 @@ class JsonclibConan(ConanFile):
         cmake.install()
 
     def package(self):
-        self.copy("*.h", dst="include", src="include")
-        self.copy("*", dst="lib", src="lib", keep_path=False)
+        self.copy("*.h", dst="include/json-c", src="package/include/json-c")
+        self.copy("*", dst="lib", src="package/lib", keep_path=False)
 
     def package_info(self):
         self.cpp_info.libs = [ "json-c" ]
