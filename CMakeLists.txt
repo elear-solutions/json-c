@@ -62,6 +62,7 @@ set(JSON_C_PUBLIC_HEADERS
     ${CMAKE_CURRENT_BINARY_DIR}/include/config.h
     ${CMAKE_CURRENT_BINARY_DIR}/include/json_config.h
     ./arraylist.h
+    ./config.h
     ./debug.h
     ./json_c_version.h
     ./json_inttypes.h
