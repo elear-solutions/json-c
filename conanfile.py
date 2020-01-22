@@ -2,6 +2,7 @@ from conans import ConanFile, CMake, tools
 
 class JsonclibConan(ConanFile):
     name = "json-c"
+    version = "0.13"
     description = "JSON-C - A JSON implementation in C"
     topics = ("conan", "json-c", "json", "encoding", "decoding", "manipulation")
     url = "<Package recipe repository url here, for issues about the package>"
