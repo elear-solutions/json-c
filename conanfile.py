@@ -5,8 +5,7 @@ class JsonclibConan(ConanFile):
     version = "0.13"
     description = "JSON-C - A JSON implementation in C"
     topics = ("conan", "json-c", "json", "encoding", "decoding", "manipulation")
-    url = "<Package recipe repository url here, for issues about the package>"
-    homepage = "https://github.com/elear-solutions/json-c"
+    url = "https://github.com/elear-solutions/json-c"
     license = "<Put the package license here>"
     generators = "cmake"
     settings = "os", "compiler", "build_type", "arch"
