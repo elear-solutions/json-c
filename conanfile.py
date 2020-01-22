@@ -14,10 +14,9 @@ class JsonclibConan(ConanFile):
         "shared": [True, False],
         "fPIC": [True, False]
     }
-    default_options = {
-        'shared': False,
-        'fPIC': True
-    }
+    default_options = {key: False for key in options.keys()}
+    default_options ["shared"] = False
+    default_options ["fPIC"] = True
 
     def config_options(self):
         if self.settings.os == "Windows":
