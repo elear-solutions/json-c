@@ -74,6 +74,7 @@ set(JSON_C_PUBLIC_HEADERS
     ./json_pointer.h
     ./json_tokener.h
     ./json_util.h
+    ./json_visit.h
     ./linkhash.h
     ./printbuf.h
 )
