@@ -121,10 +121,8 @@ set_property(TARGET json-c PROPERTY C_STANDARD 99)
 set_property(TARGET json-c-static PROPERTY C_STANDARD 99)
 set_target_properties(json-c-static PROPERTIES OUTPUT_NAME json-c)
 
-if(NOT EXISTS ${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
-  # -fPIC is implicit in SHARED libraries, see POSITION_INDEPENDANT_CODE property in cmake documentation
-  set_target_properties(json-c-static PROPERTIES COMPILE_FLAGS "-fPIC")
-endif()
+# -fPIC is implicit in SHARED libraries, see POSITION_INDEPENDANT_CODE property in cmake documentation
+set_target_properties(json-c-static PROPERTIES COMPILE_FLAGS "-fPIC")
 
 install(TARGETS json-c json-c-static
     RUNTIME DESTINATION bin
