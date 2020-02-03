@@ -43,7 +43,7 @@ elseif(UNIX)
   set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Werror -D_GNU_SOURCE")
   execute_process(COMMAND echo ${CMAKE_CURRENT_SOURCE_DIR} WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
   execute_process(COMMAND sh autogen.sh WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
-  execute_process(COMMAND ./configure WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
+  execute_process(COMMAND ./configure --host aarch64-apple-darwin WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
   file(COPY ./config.h DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/include/)
   file(COPY ./json_config.h DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/include/)
 endif()
@@ -116,6 +116,8 @@ add_library(json-c-static
 set_property(TARGET json-c PROPERTY C_STANDARD 99)
 set_property(TARGET json-c-static PROPERTY C_STANDARD 99)
 set_target_properties(json-c-static PROPERTIES OUTPUT_NAME json-c)
+# -fPIC is implicit in SHARED libraries, see POSITION_INDEPENDANT_CODE property in cmake documentation
+set_target_properties(json-c-static PROPERTIES COMPILE_FLAGS "-fPIC")
 
 install(TARGETS json-c json-c-static
     RUNTIME DESTINATION bin
