@@ -31,7 +31,7 @@ class JsonclibConan(ConanFile):
             tools.replace_in_file("../CMakeLists.txt",
                                   "execute_process(COMMAND ./configure ",
                                   "execute_process(COMMAND ./configure --host %s " % host)
-        cmake = CMake(self)
+        cmake = CMake(self, build_type = self.settings.build_type)
         cmake.configure(source_folder=".")
         return cmake
 
