@@ -22,7 +22,7 @@ class JsonclibConan(ConanFile):
     def _targets(self):
         return {
             "iOS-armv7-*": "arm-apple-darwin",
-            "iOS-armv8-*": "aarch64-apple-darwin"
+            "iOS-armv8-*": "aarch64-apple-darwin",
             "iOS-x86-*": "i386-apple-darwin",
             "iOS-x86_64-*": "x86_64-apple-darwin"
         }
