@@ -37,7 +37,7 @@ class JsonclibConan(ConanFile):
 
     def _configure_cmake(self):
         if tools.cross_building(self.settings) and self.settings.os != "Windows":
-            if tools.is_apple_os():
+            if tools.is_apple_os(self.settings.os):
                 query = "%s-%s-%s" % (self.settings.os, self.settings.arch, self.settings.compiler)
                 host = next((self._targets[i] for i in self._targets if fnmatch.fnmatch(query, i)), None)
             else:
