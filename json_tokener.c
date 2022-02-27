@@ -23,6 +23,7 @@
 #include <ctype.h>
 #include <string.h>
 #include <limits.h>
+#include <locale.h>
 
 #include "debug.h"
 #include "printbuf.h"
@@ -433,7 +434,7 @@ struct json_object* json_tokener_parse_ex(struct json_tokener *tok,
 	saved_state = json_tokener_state_finish;
 	state = json_tokener_state_eatws;
 	goto redo_char;
-	 
+
       }
       break;
     case json_tokener_state_null: /* aka starts with 'n' */
@@ -969,7 +970,7 @@ struct json_object* json_tokener_parse_ex(struct json_tokener *tok,
 
 #ifdef HAVE_USELOCALE
   uselocale(oldlocale);
-  freelocale(newloc); 
+  freelocale(newloc);
 #elif defined(HAVE_SETLOCALE)
   setlocale(LC_NUMERIC, oldlocale);
   free(oldlocale);
