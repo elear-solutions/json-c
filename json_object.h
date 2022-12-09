@@ -365,11 +365,6 @@ JSON_EXPORT int json_object_object_length(const struct json_object *obj);
  */
 JSON_C_CONST_FUNCTION(JSON_EXPORT size_t json_c_object_sizeof(void));
 
-/** Get the sizeof (struct json_object).
- * @returns a size_t with the sizeof (struct json_object)
- */
-JSON_C_CONST_FUNCTION(JSON_EXPORT size_t json_c_object_sizeof(void));
-
 /** Add an object field to a json_object of type json_type_object
  *
  * The reference count of `val` will *not* be incremented, in effect
