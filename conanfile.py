@@ -21,6 +21,8 @@ class JsonclibConan(ConanFile):
     @property
     def _targets(self):
         return {
+            "Macos-x86-*": "i386-apple-darwin",
+            "Macos-x86_64-*": "x86_64-apple-darwin",
             "iOS-armv7-*": "arm-apple-darwin",
             "iOS-armv8-*": "aarch64-apple-darwin",
             "iOS-x86-*": "i386-apple-darwin",
@@ -40,6 +42,9 @@ class JsonclibConan(ConanFile):
             if tools.is_apple_os(self.settings.os):
                 query = "%s-%s-%s" % (self.settings.os, self.settings.arch, self.settings.compiler)
                 host = next((self._targets[i] for i in self._targets if fnmatch.fnmatch(query, i)), None)
+
+                self.output.info("query: %s, host: %s" % (query, host))
+
             else:
                 host = tools.get_gnu_triplet(str(self.settings.os), str(self.settings.arch))
             tools.replace_in_file("../CMakeLists.txt",
